@@ -27,7 +27,9 @@ com.example.orderapp
      ├─ service      # ProductService
      ├─ repository   # ProductRepository
      └─ entity       # Product
+```
 
+---
 ## API Endpoints
 
 ### Product API
