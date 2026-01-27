@@ -20,9 +20,3 @@ Spring의 기본 구조(Controller / Service / Repository)와
 ---
 
 ## 📁 Project Structure
-com.example.orderapp
- ├─ product
- │   ├─ controller   # ProductController
- │   ├─ service      # ProductService
- │   ├─ repository   # ProductRepository
- │   └─ entity       # Product
