@@ -27,3 +27,17 @@ com.example.orderapp
      ├─ service      # ProductService
      ├─ repository   # ProductRepository
      └─ entity       # Product
+
+## API Endpoints
+
+### Product API
+
+Product 도메인에 대한 기본 CRUD API입니다.
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/products` | 상품 전체 목록 조회 |
+| GET | `/api/products/{id}` | 상품 단건 조회 |
+| POST | `/api/products` | 상품 등록 |
+| PUT | `/api/products/{id}` | 상품 수정 |
+| DELETE | `/api/products/{id}` | 상품 삭제 |
