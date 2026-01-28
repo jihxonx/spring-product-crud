@@ -72,3 +72,10 @@ Order 도메인에 대한 주문 생성 및 조회 API입니다.
 >   "buyerName": "admin"
 > }
 > ```
+
+## 🧩 ERD (Entity Relationship Diagram)
+
+상품(Product)과 주문(Order) 간의 관계를 나타내는 다이어그램입니다.  
+한 상품은 여러 주문을 가질 수 있습니다. (1:N 관계)
+
+![ERD Diagram]("C:\Users\qkrwl\OneDrive\그림\Screenshots\스크린샷 2026-01-28 170401.png")
