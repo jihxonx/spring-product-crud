@@ -1,5 +1,6 @@
 package com.example.orderapp.order.service;
 
+import com.example.orderapp.order.dto.OrderRequestDto;
 import com.example.orderapp.order.entity.Order;
 import com.example.orderapp.order.repository.OrderRepository;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,11 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
 
-    public Order createOrder(Long productId, int quantity, String buyerName) {
-        Order order = new Order(productId, quantity, buyerName);
+    public Order createOrder(OrderRequestDto requestDto) {
+        Order order = new Order(requestDto.getProductId(),
+                requestDto.getQuantity(),
+                requestDto.getBuyerName());
+
         return orderRepository.save(order);
     }
 

@@ -1,5 +1,6 @@
 package com.example.orderapp.order.controller;
 
+import com.example.orderapp.order.dto.OrderRequestDto;
 import com.example.orderapp.order.entity.Order;
 import com.example.orderapp.order.repository.OrderRepository;
 import com.example.orderapp.order.service.OrderService;
@@ -18,11 +19,8 @@ public class OrderController {
     }
 
     @PostMapping
-    public Order createOrder(@RequestParam Long productId,
-                             @RequestParam int quantity,
-                             @RequestParam String buyerName) {
-
-        return orderService.createOrder(productId, quantity, buyerName);
+    public Order createOrder(@RequestBody OrderRequestDto requestDto) {
+        return orderService.createOrder(requestDto);
     }
 
     @GetMapping
