@@ -36,6 +36,7 @@ com.example.orderapp
      └─ entity       # Order
 
 ---
+```
 ## API Endpoints
 
 ### Product API
