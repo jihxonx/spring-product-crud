@@ -35,11 +35,11 @@ com.example.orderapp
      ├─ dto          # OrderRequestDto
      └─ entity       # Order
 
----
+
 ```
 ## API Endpoints
 
-### Product API
+### 🧱 Product API
 
 Product 도메인에 대한 기본 CRUD API입니다.
 
@@ -50,3 +50,25 @@ Product 도메인에 대한 기본 CRUD API입니다.
 | POST | `/api/products` | 상품 등록 |
 | PUT | `/api/products/{id}` | 상품 수정 |
 | DELETE | `/api/products/{id}` | 상품 삭제 |
+
+
+### 📦 Order API  
+Order 도메인에 대한 주문 생성 및 조회 API입니다.
+
+| Method | Endpoint | Description |
+|--------|-----------|-------------|
+| POST | `/api/orders` | 주문 생성 |
+| GET | `/api/orders` | 주문 전체 조회 |
+| GET | `/api/orders/{id}` | 주문 단건 조회 |
+
+
+
+> ✅ 주문 생성 시 이미 등록된 상품의 `productId`를 사용해야 합니다.  
+> 예시 요청(JSON):
+> ```json
+> {
+>   "productId": 1,
+>   "quantity": 2,
+>   "buyerName": "admin"
+> }
+> ```
