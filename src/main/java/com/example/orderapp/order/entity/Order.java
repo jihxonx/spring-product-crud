@@ -1,6 +1,7 @@
 package com.example.orderapp.order.entity;
 
 
+import com.example.orderapp.domain.Product;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,7 +12,11 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long productId;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+//    private Long productId;
 
     private int quantity;
 
@@ -21,8 +26,8 @@ public class Order {
 
     }
 
-    public Order(Long productId, int quantity, String buyerName) {
-        this.productId = productId;
+    public Order(Product product, int quantity, String buyerName) {
+        this.product = product;
         this.quantity = quantity;
         this.buyerName = buyerName;
     }
@@ -31,8 +36,8 @@ public class Order {
         return id;
     }
 
-    public Long getProductId() {
-        return productId;
+    public Product getProduct() {
+        return product;
     }
 
     public int getQuantity() {
