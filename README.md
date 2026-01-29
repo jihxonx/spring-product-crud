@@ -1,10 +1,10 @@
 # Product CRUD Practice
 
 Spring Boot와 JPA를 사용하여  
-**상품(Product) 도메인의 CRUD 기능을 구현한 연습 프로젝트**입니다.
+**상품(Product)** 과 **주문(Order)** 도메인의 CRUD 기능을 구현한 연습 프로젝트입니다.  
 
-Spring의 기본 구조(Controller / Service / Repository)와  
-의존성 주입(DI), JPA 사용 흐름을 익히는 것을 목표로 합니다.
+Spring의 기본 구조 (Controller / Service / Repository) 와  
+의존성 주입(DI), JPA의 엔티티 매핑 및 연관관계 설계를 익히는 것을 목표로 합니다.
 
 ---
 
@@ -51,6 +51,15 @@ Product 도메인에 대한 기본 CRUD API입니다.
 | PUT | `/api/products/{id}` | 상품 수정 |
 | DELETE | `/api/products/{id}` | 상품 삭제 |
 
+> ✅ 주문 생성 시 이미 등록된 상품의 `productId`를 사용해야 합니다.  
+> 예시 요청(JSON):
+> ```json
+> {
+>   "productId": 1,
+>   "quantity": 2,
+>   "buyerName": "admin"
+> }
+> ```
 
 ### 📦 Order API  
 Order 도메인에 대한 주문 생성 및 조회 API입니다.
@@ -61,17 +70,9 @@ Order 도메인에 대한 주문 생성 및 조회 API입니다.
 | GET | `/api/orders` | 주문 전체 조회 |
 | GET | `/api/orders/{id}` | 주문 단건 조회 |
 
-
-
-> ✅ 주문 생성 시 이미 등록된 상품의 `productId`를 사용해야 합니다.  
-> 예시 요청(JSON):
-> ```json
-> {
->   "productId": 1,
->   "quantity": 2,
->   "buyerName": "admin"
-> }
-> ```
+>✅ 상품 이름 변경 후 주문 반영 확인  
+> `PUT /api/products/{id}` → `GET /api/orders/{id}`  
+> - 상품 이름 수정 후 주문을 다시 조회하면, 변경된 상품명이 반영되어 출력됩니다.
 
 ## 🧩 ERD (Entity Relationship Diagram)
 
