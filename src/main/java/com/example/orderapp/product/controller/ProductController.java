@@ -1,7 +1,7 @@
-package com.example.orderapp.controller;
+package com.example.orderapp.product.controller;
 
-import com.example.orderapp.domain.Product;
-import com.example.orderapp.service.ProductService;
+import com.example.orderapp.product.domain.Product;
+import com.example.orderapp.product.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

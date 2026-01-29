@@ -1,9 +1,7 @@
-package com.example.orderapp.repository;
+package com.example.orderapp.product.repository;
 
-import com.example.orderapp.domain.Product;
+import com.example.orderapp.product.domain.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.Optional;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 

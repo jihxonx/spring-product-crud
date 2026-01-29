@@ -1,14 +1,13 @@
 package com.example.orderapp.order.service;
 
-import com.example.orderapp.domain.Product;
+import com.example.orderapp.product.domain.Product;
 import com.example.orderapp.order.dto.OrderRequestDto;
 import com.example.orderapp.order.entity.Order;
 import com.example.orderapp.order.repository.OrderRepository;
-import com.example.orderapp.repository.ProductRepository;
+import com.example.orderapp.product.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class OrderService {

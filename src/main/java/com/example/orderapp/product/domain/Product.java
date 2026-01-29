@@ -1,4 +1,4 @@
-package com.example.orderapp.domain;
+package com.example.orderapp.product.domain;
 
 
 import jakarta.persistence.Entity;

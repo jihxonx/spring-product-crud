@@ -1,7 +1,7 @@
 package com.example.orderapp.order.entity;
 
 
-import com.example.orderapp.domain.Product;
+import com.example.orderapp.product.domain.Product;
 import jakarta.persistence.*;
 
 @Entity
