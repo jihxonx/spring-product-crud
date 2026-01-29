@@ -159,21 +159,6 @@ PUT /api/products/{id} → GET /api/orders/{id}
 - **원자성 보장 방법** 에 대한 간단한 설명
 
 
-erDiagram
-    PRODUCT ||--o{ ORDER : "has"
-    
-    PRODUCT {
-        Long id PK "자동 증가"
-        String name "상품명"
-        int price "가격"
-    }
-    
-    ORDER {
-        Long id PK "자동 증가"
-        Long product_id FK "상품 ID"
-        int quantity "주문 수량"
-        String buyerName "구매자명"
-    }
 
 
 
