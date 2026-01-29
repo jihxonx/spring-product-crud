@@ -78,7 +78,8 @@ Order 도메인에 대한 주문 생성 및 조회 API입니다.
 
 상품(Product)과 주문(Order) 간의 관계를 나타내는 다이어그램입니다.  
 한 상품은 여러 주문을 가질 수 있습니다. (1:N 관계)
-<img width="1545" height="2373" alt="Untitled diagram-2026-01-29-034012" src="https://github.com/user-attachments/assets/1d287bf6-ad12-4b63-a3df-44d9d1475ed9" />
+<img width="1545" height="2373" alt="Product Order Link Model-2026-01-29-034213" src="https://github.com/user-attachments/assets/c1298ec1-4ce3-4d9c-9c1d-f81cb5f379ba" />
+
 
 
 
