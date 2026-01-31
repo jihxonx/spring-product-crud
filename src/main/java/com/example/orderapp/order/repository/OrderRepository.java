@@ -12,5 +12,5 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     * 'JOIN FETCH o.product' : Order의 product도 함께 조회
     * JOIN FETCH -> N+1 문제 해결*/
     @Query("SELECT o FROM Order o join FETCH o.product")
-    Page<Order> findAllWithProduct(Pageable pageable);
+    Page<Order> findAllWithProduct(Pageable pageable); //Pageable pageable : 페이지 정보 받음
 }
