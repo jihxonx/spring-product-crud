@@ -1,6 +1,7 @@
 package com.example.orderapp.order.controller;
 
 import com.example.orderapp.order.dto.OrderRequestDto;
+import com.example.orderapp.order.dto.OrderResponseDto;
 import com.example.orderapp.order.entity.Order;
 import com.example.orderapp.order.repository.OrderRepository;
 import com.example.orderapp.order.service.OrderService;
@@ -26,7 +27,7 @@ public class OrderController {
     }
 
     @GetMapping
-    public Page<Order> getOrders(Pageable pageable) {
+    public Page<OrderResponseDto> getOrders(Pageable pageable) {
         return orderService.getOrder(pageable);
     }
 
