@@ -4,6 +4,8 @@ import com.example.orderapp.order.dto.OrderRequestDto;
 import com.example.orderapp.order.entity.Order;
 import com.example.orderapp.order.repository.OrderRepository;
 import com.example.orderapp.order.service.OrderService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,8 +26,8 @@ public class OrderController {
     }
 
     @GetMapping
-    public List<Order> getOrders() {
-        return orderService.getOrders();
+    public Page<Order> getOrders(Pageable pageable) {
+        return orderService.getOrder(pageable);
     }
 
     @GetMapping("/{id}")
