@@ -1,5 +1,6 @@
 package com.example.orderapp.order.service;
 
+import com.example.orderapp.order.dto.OrderResponseDto;
 import com.example.orderapp.product.domain.Product;
 import com.example.orderapp.order.dto.OrderRequestDto;
 import com.example.orderapp.order.entity.Order;
@@ -38,8 +39,9 @@ public class OrderService {
     }
 
     /*List -> Page : 전체가 아닌 페이지 단위로 조회*/
-    public Page<Order> getOrder(Pageable pageable) {
-        return orderRepository.findAllWithProduct(pageable);
+    public Page<OrderResponseDto> getOrder(Pageable pageable) {
+        Page<Order> orders = orderRepository.findAllWithProduct(pageable);
+        return orders.map(OrderResponseDto::new);
     }
 
     public Order getOrder(Long id) {
