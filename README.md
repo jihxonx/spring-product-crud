@@ -32,7 +32,7 @@ com.example.orderapp
      ├─ controller   # OrderController
      ├─ service      # OrderService
      ├─ repository   # OrderRepository
-     ├─ dto          # OrderRequestDto
+     ├─ dto          # OrderRequestDto, OrderResponseDto
      └─ entity       # Order
 
 
@@ -64,11 +64,16 @@ Product 도메인에 대한 기본 CRUD API입니다.
 ### 📦 Order API  
 Order 도메인에 대한 주문 생성 및 조회 API입니다.
 
-| Method | Endpoint | Description |
-|--------|-----------|-------------|
-| POST | `/api/orders` | 주문 생성 |
-| GET | `/api/orders` | 주문 전체 조회 |
-| GET | `/api/orders/{id}` | 주문 단건 조회 |
+| Method | Endpoint | Description | Query Params |
+|--------|-----------|-------------|--------------|
+| POST | `/api/orders` | 주문 생성 | - |
+| GET | `/api/orders` | 주문 목록 조회 (페이징) | `page`, `size`, `sort` |
+| GET | `/api/orders/{id}` | 주문 단건 조회 | - |
+
+**페이지네이션 파라미터:**
+- `page`: 페이지 번호 (0부터 시작, 기본값: 0)
+- `size`: 페이지 크기 (기본값: 20)
+- `sort`: 정렬 기준 (예: `id,desc`)
 
 >✅ 상품 이름 변경 후 주문 반영 확인  
 > `PUT /api/products/{id}` → `GET /api/orders/{id}`  
@@ -129,23 +134,23 @@ PUT /api/products/{id} → GET /api/orders/{id}
 <img width="1150" height="439" alt="상품이름변경후주문반영" src="https://github.com/user-attachments/assets/4ad2d3b2-6bf1-44c6-84d3-d0476ee6e96a" />
 <img width="1145" height="668" alt="스크린샷 2026-01-28 232229" src="https://github.com/user-attachments/assets/4057134f-cc71-4241-8e4a-51ac44272d58" />
 
+✅ 주문 목록 조회 (페이지네이션)
+
+GET /api/orders?page=0&size=2
+<img width="1794" height="944" alt="첫 페이지 조회 (2개씩)" src="https://github.com/user-attachments/assets/d9752ff0-aacc-4491-b5d2-bd96f4b28110" />
+<img width="1796" height="960" alt="두 번째 페이지 조회" src="https://github.com/user-attachments/assets/01030066-463f-403b-a258-3424ef98a37b" />
+
+
+✅ N+1 문제 해결 확인 (콘솔 로그)
+<img width="659" height="436" alt="IntelliJ 콘솔 화면" src="https://github.com/user-attachments/assets/47a880d9-2217-43f3-bf4e-8883550a7a3e" />
+
+**해결 방법:**
+- `@Query`와 `JOIN FETCH`를 사용하여 주문과 상품을 한 번에 조회
+- 기존 N+1 문제: 주문 조회 1번 + 각 주문의 상품 N번 = 총 N+1번
+- 개선 후: COUNT 1번 + JOIN 조회 1번 = 총 2번
 
 ---
 
-## 🔜 다음 구현 예정 기능
-
-### 🧾 주문 목록 조회 (Pagination + N+1 문제 해결)
-한 요청에 여러 주문을 **페이징 방식으로 조회**할 수 있도록 개선할 예정입니다.
-
-- 주문 목록 조회 API 구현 
-- 응답 데이터에 **상품 이름** 포함
-- 조회 시 **N+1 문제**가 발생하지 않도록 최적화 예정
-
- **구현 완료 후 확인할 내용**
-- 로그를 통해 쿼리 실행 예시 확인 및  
-  N+1 문제를 피한 방법에 대한 간단한 설명 작성
-
----
 
 ### 📦 상품 재고 차감 (Stock 감소 로직)
 상품 도메인에 **재고(stock)** 필드를 추가하고,  
