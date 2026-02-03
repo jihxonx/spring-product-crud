@@ -142,6 +142,7 @@ GET /api/orders?page=0&size=2
 
 
 ✅ N+1 문제 해결 확인 (콘솔 로그)
+
 <img width="659" height="436" alt="IntelliJ 콘솔 화면" src="https://github.com/user-attachments/assets/47a880d9-2217-43f3-bf4e-8883550a7a3e" />
 
 **해결 방법:**
