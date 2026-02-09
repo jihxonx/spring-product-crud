@@ -51,7 +51,7 @@ Product 도메인에 대한 기본 CRUD API입니다.
 | PUT | `/api/products/{id}` | 상품 수정 |
 | DELETE | `/api/products/{id}` | 상품 삭제 |
 
-> ✅ 주문 생성 시 이미 등록된 상품의 `productId`를 사용해야 합니다.  
+> ✅ 주문 생성 시 이미 등록된 상품의 `productId`를 사용해야 합니다. 
 > 예시 요청(JSON):
 > ```json
 > {
